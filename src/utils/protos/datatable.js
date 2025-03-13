@@ -32,7 +32,7 @@ function datatable(options) {
         checkboxRefresh: true,
 
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "varchar_32_", header: [{ text: "Text", css: { "text-align": "center" } }, { content: "serverFilter" }], editor: "text", adjust: true, minWidth: 120 },
             { id: "varchar_256_", header: [{ text: "Options", css: { "text-align": "center" } }, { content: "serverFilter" }], sort: "server", options: [{ id: "SC", value: "生产制造部" }, { id: "WZ", value: "物资采购部" }, { id: "RL", value: "人力资源部" }], adjust: true, minWidth: 100 },
             { id: "varchar_4096_", header: { text: "Popup", css: { "text-align": "center" } }, editor: "popup", sort: "server", minWidth: 240, maxWidth: 480 },
