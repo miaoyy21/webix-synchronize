@@ -253,6 +253,19 @@ function datatable(options) {
                     }
                 };
             },
+            addLast(opts) {
+                /* {id: String, label: String, callback: function(){ return Object } }*/
+                opts = opts || {};
+                opts.id = opts.id || utils.UUID();
+
+                return {
+                    id: opts["id"], view: "button", label: opts["label"] || "新增", autowidth: true, css: "webix_primary", type: "icon", icon: "mdi mdi-18px mdi-plus",
+                    click() {
+                        var row = opts["callback"] ? opts["callback"]() : {};
+                        $$(datatable_id).add(row, $$(datatable_id).count());
+                    }
+                };
+            },
             remove(opts) {
                 /* {id: String, label: String, callback: function(){ return Array<String>|String } }*/
                 opts = opts || {};

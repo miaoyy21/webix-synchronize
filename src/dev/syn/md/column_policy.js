@@ -2,7 +2,7 @@ function builder() {
     var api = "/api/syn/md/column_policy";
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
-        url: api, drag: false,
+        url: api,
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
@@ -31,7 +31,7 @@ function builder() {
         rows: [
             {
                 view: "toolbar",
-                cols: [dGrid.actions.add(), dGrid.actions.refresh(), {}]
+                cols: [dGrid.actions.addLast(), dGrid.actions.refresh(), {}]
             },
             dGrid,
             dPager

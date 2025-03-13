@@ -34,8 +34,9 @@ var menu_data = [
         id: "syn_md", icon: "mdi mdi-view-dashboard", value: "基础数据维护", data: [
             { id: "syn_md_database", icon: "mdi mdi-medication", value: "数据库映射" },
             { id: "syn_md_database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
-            { id: "syn_md_dcolumn_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
-            { id: "syn_md_dcolumn_policy", icon: "mdi mdi-medication", value: "字段更新策略" },
+            { id: "syn_md_column_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
+            { id: "syn_md_column_policy", icon: "mdi mdi-medication", value: "字段更新策略" },
+            { id: "syn_md_src_table_policy", icon: "mdi mdi-medication", value: "原始表策略设置" },
         ]
     },
     {
@@ -49,7 +50,7 @@ webix.ready(function () {
     webix.ui({
         rows: [
             {
-                view: "toolbar", css: { "background": "#eee" }, elements: [
+                view: "toolbar", css: { "background": "#e0ffff" }, elements: [
                     { view: "icon", icon: "mdi mdi-menu", click() { $$("home_sidebar_id").toggle() } },
                     { view: "label", label: "数据迁移同步 V1.0" },
                     {},
@@ -76,7 +77,7 @@ webix.ready(function () {
                                 options: [
                                     { id: "home-page", value: "<span style='font-size:12px'>首页</span>" }
                                 ],
-                                optionWidth: 140,
+                                optionWidth: 160,
                                 height: 28,
                                 on: {
                                     onOptionRemove(id) { $$("home_view_id").removeView(id) },
