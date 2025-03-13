@@ -40,18 +40,16 @@ function builder() {
                     webix.ajax().post(api, _.extend({}, row, { "operation": "reload" }))
                         .then((res) => {
                             webix.message({ type: "success", text: "重新加载原始和目标数据库成功！" });
-                        }).finally(() => {
-                            this.hideProgress();
                         })
+                        .finally(() => { this.hideProgress() });
                 },
                 button_compare(e, item) {
                     this.showProgress({ type: "bottom" });
                     webix.ajax().post(api, { "operation": "compare", "id": item.row })
                         .then((res) => {
                             webix.message({ type: "success", text: "对比分析完成！" });
-                        }).finally(() => {
-                            this.hideProgress();
                         })
+                        .finally(() => { this.hideProgress() });
                 },
             },
             pager: dPager.id

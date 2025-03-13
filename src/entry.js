@@ -33,7 +33,7 @@ var menu_data = [
     {
         id: "md", icon: "mdi mdi-view-dashboard", value: "基础数据维护", data: [
             { id: "md-database", icon: "mdi mdi-medication", value: "数据库映射" },
-            { id: "md-policy", icon: "mdi mdi-medication", value: "字段更新策略" },
+            { id: "md-database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
         ]
     },
     {

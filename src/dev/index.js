@@ -2,6 +2,7 @@
 var dev = {};
 
 dev["md-database"] = require("./md/database.js");
+dev["md-database_table"] = require("./md/database_table.js");
 // dev["main-data-kwdm"] = require("./mainData/kwdm.js");
 // dev["main-data-wzdm"] = require("./mainData/wzdm.js");
 // dev["main-data-gysdm"] = require("./mainData/gysdm.js");
