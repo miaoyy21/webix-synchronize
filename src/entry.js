@@ -31,10 +31,10 @@ webix.attachEvent("onAjaxError", function (xhr) {
 
 var menu_data = [
     {
-        id: "md", icon: "mdi mdi-view-dashboard", value: "基础数据维护", data: [
-            { id: "md_database", icon: "mdi mdi-medication", value: "数据库映射" },
-            { id: "md_database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
-            { id: "md_dcolumn_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
+        id: "syn_md", icon: "mdi mdi-view-dashboard", value: "基础数据维护", data: [
+            { id: "syn_md_database", icon: "mdi mdi-medication", value: "数据库映射" },
+            { id: "syn_md_database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
+            { id: "syn_md_dcolumn_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
         ]
     },
     {
