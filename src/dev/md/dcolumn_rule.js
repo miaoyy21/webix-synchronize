@@ -1,5 +1,5 @@
 function builder() {
-    var api = "/api/md/column_rule";
+    var api = "/api/syn/md/column_rule";
 
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({

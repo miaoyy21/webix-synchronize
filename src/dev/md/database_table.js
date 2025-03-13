@@ -37,11 +37,11 @@ function builder() {
                 view: "toolbar",
                 cols: [
                     {
-                        view: "richselect", label: "数据库：", labelAlign: "right", labelWidth: 80, options: "/api/md/database?action=options", width: 240,
+                        view: "richselect", label: "数据库：", labelAlign: "right", labelWidth: 80, options: "/api/syn/md/database?action=options", width: 240,
                         on: {
                             onChange(newValue) {
                                 $$(dGrid.id).clearAll();
-                                $$(dGrid.id).define("url", "/api/md/database_table?database=" + newValue);
+                                $$(dGrid.id).define("url", "/api/syn/md/database_table?database=" + newValue);
                             }
                         }
                     },
