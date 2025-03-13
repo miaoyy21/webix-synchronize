@@ -8,10 +8,10 @@ function builder() {
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
-            { id: "dst_db", header: { text: "目标数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
-            { id: "dst_flag", header: { text: "目标标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
             { id: "src_db", header: { text: "原始数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
             { id: "src_flag", header: { text: "原始标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
+            { id: "dst_db", header: { text: "目标数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
+            { id: "dst_flag", header: { text: "目标标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
             {
                 id: "buttons",
                 width: 160,
