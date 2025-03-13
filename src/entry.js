@@ -1,6 +1,7 @@
 
 import "webix/skins/mini.css";
 import "@mdi/font/css/materialdesignicons.min.css";
+import "./assets/phoenix.css";
 import * as webix from "webix/webix.min.js";
 
 import _ from "underscore";
@@ -31,7 +32,7 @@ webix.attachEvent("onAjaxError", function (xhr) {
 var menu_data = [
     {
         id: "md", icon: "mdi mdi-view-dashboard", value: "基础数据维护", data: [
-            { id: "md-table", icon: "mdi mdi-medication", value: "数据库表同步" },
+            { id: "md-database", icon: "mdi mdi-medication", value: "数据库映射" },
             { id: "md-policy", icon: "mdi mdi-medication", value: "字段更新策略" },
         ]
     },

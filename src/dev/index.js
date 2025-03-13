@@ -1,7 +1,7 @@
 
 var dev = {};
 
-dev["md-table"] = require("./md/table.js");
+dev["md-database"] = require("./md/database.js");
 // dev["main-data-kwdm"] = require("./mainData/kwdm.js");
 // dev["main-data-wzdm"] = require("./mainData/wzdm.js");
 // dev["main-data-gysdm"] = require("./mainData/gysdm.js");
