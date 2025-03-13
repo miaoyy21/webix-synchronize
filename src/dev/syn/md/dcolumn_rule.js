@@ -4,7 +4,7 @@ function builder() {
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
         url: api, drag: false,
-        save: { url: api, operationName: "operation" },
+        save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "src_column_type", header: { text: "转换前数据类型", css: { "text-align": "center" } }, width: 160 },

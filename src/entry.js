@@ -35,6 +35,7 @@ var menu_data = [
             { id: "syn_md_database", icon: "mdi mdi-medication", value: "数据库映射" },
             { id: "syn_md_database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
             { id: "syn_md_dcolumn_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
+            { id: "syn_md_dcolumn_policy", icon: "mdi mdi-medication", value: "字段更新策略" },
         ]
     },
     {

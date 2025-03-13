@@ -5,7 +5,7 @@ function builder() {
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
         url: api, drag: false,
-        save: { url: api, operationName: "operation" },
+        save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "dst_db", header: { text: "目标数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
@@ -22,7 +22,6 @@ function builder() {
                                 <button webix_tooltip="对原始和目标数据库对比分析" type="button" class="button_compare webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_primary_icon mdi mdi-18px mdi-compare"/> </button>
                                 <button webix_tooltip="删除" type="button" class="button_remove webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_danger_icon mdi mdi-18px mdi-trash-can"/> </button>
                             </div>`,
-                minWidth: 160,
             }
         ],
         rules: {
