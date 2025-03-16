@@ -9,10 +9,11 @@ function builder() {
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "src_ds_code", header: { text: "原始数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
             { id: "src_sql", header: { text: "原始取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 160, fillspace: true },
-            { id: "is_sync", header: { text: "启用同步", css: { "text-align": "center" } }, template: "{common.checkbox()}", checkValue: "1", uncheckValue: "0", tooltip: false, css: { "text-align": "center" }, width: 120 },
+            { id: "src_id_field", header: { text: "原始ID字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
             { id: "dst_ds_code", header: { text: "目标数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
             { id: "dst_sql", header: { text: "目标取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 160, fillspace: true },
             { id: "dst_table", header: { text: "目标数据库表", css: { "text-align": "center" } }, editor: "text", width: 120 },
+            { id: "dst_id_field", header: { text: "目标ID字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
             { id: "sync_status", header: { text: "同步状态", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
             { id: "sync_at", header: { text: "执行时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
@@ -30,9 +31,11 @@ function builder() {
         rules: {
             "src_ds_code": webix.rules.isNotEmpty,
             "src_sql": webix.rules.isNotEmpty,
+            "src_id_field": webix.rules.isNotEmpty,
             "dst_ds_code": webix.rules.isNotEmpty,
             "dst_sql": webix.rules.isNotEmpty,
             "dst_table": webix.rules.isNotEmpty,
+            "dst_id_field": webix.rules.isNotEmpty,
         },
         onClick: {
             button_log(e, item) {
