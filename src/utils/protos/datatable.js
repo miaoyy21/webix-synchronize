@@ -308,6 +308,10 @@ function datatable(options) {
                     view: "button", label: "刷新", autowidth: true, css: "webix_primary", type: "icon", icon: "mdi mdi-18px mdi-refresh",
                     click() {
                         var datatable = $$(datatable_id);
+                        if (!datatable.config.url) {
+                            return;
+                        }
+
                         datatable.editCancel();
 
                         var params = {};
