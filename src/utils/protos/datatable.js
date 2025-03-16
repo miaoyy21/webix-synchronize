@@ -309,6 +309,7 @@ function datatable(options) {
                     click() {
                         var datatable = $$(datatable_id);
                         if (!datatable.config.url) {
+                            webix.message({ type: "error", text: "无效的检索数据地址！" });
                             return;
                         }
 
