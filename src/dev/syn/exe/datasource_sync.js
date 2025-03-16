@@ -8,10 +8,10 @@ function builder() {
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "src_ds_code", header: { text: "原始数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
-            { id: "src_sql", header: { text: "原始取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 160, fillspace: true },
+            { id: "src_sql", header: { text: "原始取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 240, fillspace: true },
             { id: "src_id_field", header: { text: "原始ID字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
             { id: "dst_ds_code", header: { text: "目标数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
-            { id: "dst_sql", header: { text: "目标取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 160, fillspace: true },
+            { id: "dst_sql", header: { text: "目标取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 240, fillspace: true },
             { id: "dst_table", header: { text: "目标数据库表", css: { "text-align": "center" } }, editor: "text", width: 120 },
             { id: "dst_id_field", header: { text: "目标ID字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
             {
@@ -64,6 +64,7 @@ function builder() {
         onClick: {
             button_log(e, item) {
                 var row = this.getItem(item.row);
+                webix.message({ type: "success", text: "TODO " + row["id"] });
             },
             button_start(e, item) {
                 var row = this.getItem(item.row);
