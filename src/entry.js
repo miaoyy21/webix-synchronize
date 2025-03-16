@@ -37,10 +37,12 @@ var menu_data = [
             { id: "syn_md_column_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
             { id: "syn_md_column_policy", icon: "mdi mdi-medication", value: "字段更新策略" },
             { id: "syn_md_src_table_policy", icon: "mdi mdi-medication", value: "原始表策略设置" },
+            { id: "syn_md_datasource", icon: "mdi mdi-medication", value: "数据源配置" },
         ]
     },
     {
         id: "sync", icon: "mdi mdi-puzzle", value: "数据迁移同步", data: [
+            { id: "syn_exe_datasource_sync", icon: "mdi mdi-medication", value: "数据同步" },
             { id: "sync-db-gen", icon: "mdi mdi-view-column", value: "生成SQL语句" },
         ]
     },
@@ -77,7 +79,7 @@ webix.ready(function () {
                                 options: [
                                     { id: "home-page", value: "<span style='font-size:12px'>首页</span>" }
                                 ],
-                                optionWidth: 160,
+                                optionWidth: 150,
                                 height: 28,
                                 on: {
                                     onOptionRemove(id) { $$("home_view_id").removeView(id) },
