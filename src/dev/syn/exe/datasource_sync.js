@@ -13,6 +13,7 @@ function builder() {
             { id: "dst_ds_code", header: { text: "目标数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
             { id: "dst_sql", header: { text: "目标取数SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 160, fillspace: true },
             { id: "dst_table", header: { text: "目标数据库表", css: { "text-align": "center" } }, editor: "text", width: 120 },
+            { id: "sync_status", header: { text: "同步状态", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
             { id: "sync_at", header: { text: "执行时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
             {
