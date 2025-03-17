@@ -14,12 +14,13 @@ function builder() {
             { id: "dst_flag", header: { text: "目标标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
             {
                 id: "buttons",
-                width: 160,
+                width: 240,
                 header: { text: "操作按钮", css: { "text-align": "center" } },
                 tooltip: false,
                 template: ` <div class="webix_el_box" style="padding:0px; text-align:center"> 
                                 <button webix_tooltip="重新加载原始和目标数据库表" type="button" class="button_reload webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_primary_icon mdi mdi-18px mdi-reload"/> </button>
                                 <button webix_tooltip="对原始和目标数据库对比分析" type="button" class="button_compare webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_primary_icon mdi mdi-18px mdi-compare"/> </button>
+                                <button webix_tooltip="更新原始和目标数据库表结构差异" type="button" class="button_difference webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_primary_icon mdi mdi-18px mdi-vector-difference"/> </button>
                                 <button webix_tooltip="删除" type="button" class="button_remove webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_danger_icon mdi mdi-18px mdi-trash-can"/> </button>
                             </div>`,
             }
@@ -46,6 +47,14 @@ function builder() {
                 webix.ajax().post(api, { "operation": "compare", "id": item.row })
                     .then((res) => {
                         webix.message({ type: "success", text: "对比分析完成！" });
+                    })
+                    .finally(() => { this.hideProgress() });
+            },
+            button_difference(e, item) {
+                this.showProgress({ type: "bottom" });
+                webix.ajax().post(api, { "operation": "difference", "id": item.row })
+                    .then((res) => {
+                        webix.message({ type: "success", text: "更新数据库表结构差异完成！" });
                     })
                     .finally(() => { this.hideProgress() });
             },
