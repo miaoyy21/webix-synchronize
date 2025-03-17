@@ -4,17 +4,17 @@ function builder() {
 
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
-        url: null, drag: false, data: [],
+        url: null, drag: false, data: [], editable: false, rightSplit: 1,
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
-            { id: "table_name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
-            { id: "is_sync", header: { text: "迁移同步", css: { "text-align": "center" } }, template: "{common.checkbox()}", checkValue: "1", uncheckValue: "0", tooltip: false, css: { "text-align": "center" }, width: 80 },
-            { id: "description", header: { text: "描述", css: { "text-align": "center" } }, editor: "text", fillspace: true },
+            { id: "table_name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 140 },
+            utils.protos.checkbox({ id: "is_sync", header: { text: "迁移同步", css: { "text-align": "center" } }, editable: false, width: 80 }),
+            { id: "description", header: { text: "描述", css: { "text-align": "center" } }, minWidth: 240, fillspace: true },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
             {
                 id: "buttons",
-                width: 120,
+                width: 80,
                 header: { text: "操作按钮", css: { "text-align": "center" } },
                 tooltip: false,
                 template: ` <div class="webix_el_box" style="padding:0px; text-align:center"> 
