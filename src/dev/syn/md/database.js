@@ -43,16 +43,20 @@ function builder() {
                     .finally(() => { this.hideProgress() });
             },
             button_compare(e, item) {
+                var row = this.getItem(item.row);
+
                 this.showProgress({ type: "bottom" });
-                webix.ajax().post(api, { "operation": "compare", "id": item.row })
+                webix.ajax().post(api, _.extend({}, row, { "operation": "compare" }))
                     .then((res) => {
                         webix.message({ type: "success", text: "对比分析完成！" });
                     })
                     .finally(() => { this.hideProgress() });
             },
             button_difference(e, item) {
+                var row = this.getItem(item.row);
+
                 this.showProgress({ type: "bottom" });
-                webix.ajax().post(api, { "operation": "difference", "id": item.row })
+                webix.ajax().post(api, _.extend({}, row, { "operation": "difference" }))
                     .then((res) => {
                         webix.message({ type: "success", text: "更新数据库表结构差异完成！" });
                     })

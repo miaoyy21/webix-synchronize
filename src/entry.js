@@ -21,7 +21,8 @@ var menu_data = [
     {
         id: "sync", icon: "mdi mdi-puzzle", value: "数据迁移同步", data: [
             { id: "syn_exe_datasource_sync", icon: "mdi mdi-medication", value: "数据同步" },
-            { id: "syn_exe_sql_sync", icon: "mdi mdi-view-column", value: "数据迁移" },
+            { id: "syn_exe_table_sync", icon: "mdi mdi-view-column", value: "数据库表结构同步" },
+            { id: "syn_exe_sql_sync", icon: "mdi mdi-view-column", value: "数据库表数据迁移" },
         ]
     },
 ];
