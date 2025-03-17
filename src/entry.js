@@ -1,32 +1,10 @@
-
-import "webix/skins/mini.css";
-import "@mdi/font/css/materialdesignicons.min.css";
-import "./assets/phoenix.css";
-import * as webix from "webix/webix.min.js";
-
-import _ from "underscore";
+import "./install";
 
 import { dev } from "./dev";
 import { utils } from "./utils";
 
 webix.debug = false;
-_.extend(global, { _, webix, utils });
-
-webix.env.cdn = "./";
-webix.i18n.setLocale("zh-CN");
-
-// 全局AJAX请求报错提示
-webix.attachEvent("onAjaxError", function (xhr) {
-    var text;
-    try {
-        var obj = JSON.parse(xhr.response);
-        text = obj["error"];
-    } catch (e) {
-        text = xhr.responseText;
-    } finally {
-        webix.message({ type: "error", text: text, expire: 6000 });
-    }
-});
+_.extend(global, { utils });
 
 
 var menu_data = [
@@ -43,7 +21,7 @@ var menu_data = [
     {
         id: "sync", icon: "mdi mdi-puzzle", value: "数据迁移同步", data: [
             { id: "syn_exe_datasource_sync", icon: "mdi mdi-medication", value: "数据同步" },
-            { id: "sync-db-gen", icon: "mdi mdi-view-column", value: "生成SQL语句" },
+            { id: "syn_exe_sql_sync", icon: "mdi mdi-view-column", value: "数据迁移" },
         ]
     },
 ];

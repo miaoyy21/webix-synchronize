@@ -1,6 +1,6 @@
 function builder() {
     var apiDs = "/api/syn/md/datasource";
-    var apiDsSync = "/api/syn/md/datasource_sync";
+    var apiDsSync = "/api/syn/exe/datasource_sync";
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
         url: apiDsSync, rightSplit: 1,
