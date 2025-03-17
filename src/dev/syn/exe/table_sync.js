@@ -4,7 +4,7 @@ function builder() {
 
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
-        url: null, drag: false, data: [], editable: false, rightSplit: 1,
+        url: null, drag: false, data: [], editable: false,
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
@@ -12,22 +12,14 @@ function builder() {
             utils.protos.checkbox({ id: "is_sync", header: { text: "迁移同步", css: { "text-align": "center" } }, editable: false, width: 80 }),
             { id: "description", header: { text: "描述", css: { "text-align": "center" } }, minWidth: 240, fillspace: true },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
-            {
-                id: "buttons",
-                width: 80,
-                header: { text: "操作按钮", css: { "text-align": "center" } },
-                tooltip: false,
-                template: ` <div class="webix_el_box" style="padding:0px; text-align:center"> 
-                                <button webix_tooltip="生成SQL脚本" type="button" class="button_sql webix_icon_button" style="height:30px;width:30px;"> <span class="phoenix_primary_icon mdi mdi-18px mdi-script-text"/> </button>
-                            </div>`,
-            }
         ],
-        onClick: {
-            button_sql(e, item) {
-                var row = this.getItem(item.row);
-
-                console.log(row);
-                $$(script).setValue("SELECT * FROM users;");
+        on: {
+            onAfterSelect(selection) {
+                var row = this.getItem(selection.id);
+                webix.ajax().get("/api/syn/exe/table_sync", row)
+                    .then((res) => {
+                        $$(script).setValue(res.text());
+                    })
             },
         },
         pager: dPager.id
