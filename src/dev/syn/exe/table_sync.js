@@ -1,5 +1,6 @@
 function builder() {
     var script = utils.UUID();
+    var database = utils.UUID();
     var api = "/api/syn/md/src_table";
 
     var dPager = utils.protos.pager();
@@ -31,7 +32,7 @@ function builder() {
                 view: "toolbar",
                 cols: [
                     {
-                        view: "richselect", label: "原始数据库：", labelAlign: "right", labelWidth: 100, options: "/api/syn/md/database?action=src_options", width: 240,
+                        id: database, view: "richselect", label: "原始数据库：", labelAlign: "right", labelWidth: 100, options: "/api/syn/md/database?action=src_options", width: 240,
                         on: {
                             onChange(newValue) {
                                 $$(dGrid.id).clearAll();
@@ -42,7 +43,13 @@ function builder() {
                     {
                         view: "button", label: "生成SQL脚本", css: "webix_primary", autowidth: true, type: "icon", icon: "mdi mdi-18px mdi-script-text",
                         click: () => {
-                            $$(script).setValue("SELECT * FROM users;");
+                            $$(dGrid.id).showProgress({ type: "top" });
+                            webix.ajax().get("/api/syn/exe/table_sync", { "database_name": $$(database).getValue() })
+                                .then((res) => {
+                                    $$(dGrid.id).unselectAll();
+                                    $$(script).setValue(res.text());
+                                })
+                                .finally(() => { $$(dGrid.id).hideProgress() });
                         },
                     },
                     dGrid.actions.refresh(),
