@@ -1,15 +1,13 @@
 function builder() {
-    var api = "/api/syn/md/column_policy";
+    var api = "/api/syn/md/replace_code";
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
         url: api,
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
-            { id: "code", header: { text: "策略编码", css: { "text-align": "center" } }, editor: "text", width: 120 },
-            { id: "name", header: { text: "策略名称", css: { "text-align": "center" } }, editor: "text", width: 120 },
-            { id: "replace_code", header: { text: "替换编码", css: { "text-align": "center" } }, editor: "combo", options: "/api/syn/md/replace_code?action=options", width: 120 },
-            { id: "is_exactly_match", header: { text: "精确匹配替换", css: { "text-align": "center" } }, template: "{common.checkbox()}", checkValue: "1", uncheckValue: "0", tooltip: false, css: { "text-align": "center" }, width: 120 },
+            { id: "code", header: { text: "替换编码", css: { "text-align": "center" } }, editor: "text", width: 120 },
+            { id: "name", header: { text: "替换名称", css: { "text-align": "center" } }, editor: "text", width: 160 },
             { id: "description", header: { text: "更新策略描述", css: { "text-align": "center" } }, editor: "text", fillspace: true },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
             {
@@ -22,10 +20,6 @@ function builder() {
                             </div>`,
             }
         ],
-        scheme: {
-            "replace_code": "-",
-            "is_exactly_match": "0"
-        },
         rules: {
             "code": webix.rules.isNotEmpty,
             "name": webix.rules.isNotEmpty,

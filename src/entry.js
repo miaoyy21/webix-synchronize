@@ -13,6 +13,7 @@ var menu_data = [
             { id: "syn_md_database", icon: "mdi mdi-medication", value: "数据库映射" },
             { id: "syn_md_database_table", icon: "mdi mdi-medication", value: "数据库表结构" },
             { id: "syn_md_column_rule", icon: "mdi mdi-medication", value: "数据类型转换规则" },
+            { id: "syn_md_replace_code", icon: "mdi mdi-medication", value: "替换编码维护" },
             { id: "syn_md_column_policy", icon: "mdi mdi-medication", value: "字段更新策略" },
             { id: "syn_md_src_table_policy", icon: "mdi mdi-medication", value: "原始表策略设置" },
             { id: "syn_md_datasource", icon: "mdi mdi-medication", value: "数据源配置" },
