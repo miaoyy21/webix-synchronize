@@ -17,7 +17,7 @@ function builder() {
         on: {
             onAfterSelect(selection) {
                 var row = this.getItem(selection.id);
-                webix.ajax().get("/api/syn/exe/table_sync", row)
+                webix.ajax().get("/api/syn/exe/sql_sync", row)
                     .then((res) => {
                         $$(script).setValue(res.text());
                     })
@@ -44,7 +44,7 @@ function builder() {
                         view: "button", label: "生成SQL脚本", css: "webix_primary", autowidth: true, type: "icon", icon: "mdi mdi-18px mdi-script-text",
                         click: () => {
                             $$(dGrid.id).showProgress({ type: "top" });
-                            webix.ajax().get("/api/syn/exe/table_sync", { "database_name": $$(database).getValue() })
+                            webix.ajax().get("/api/syn/exe/sql_sync", { "database_name": $$(database).getValue() })
                                 .then((res) => {
                                     $$(dGrid.id).unselectAll();
                                     $$(script).setValue(res.text());
