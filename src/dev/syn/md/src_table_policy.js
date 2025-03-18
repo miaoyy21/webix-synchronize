@@ -35,9 +35,9 @@ function builder() {
             {
                 id: "is_primary", header: { text: "主键", css: { "text-align": "center" } },
                 template(policy) { return policy["is_primary"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-key-variant'></span>" : "<span/>" },
-                css: { "text-align": "center" }, width: 80
+                css: { "text-align": "center" }, width: 60
             },
-            { id: "column_policy", header: { text: "更新策略", css: { "text-align": "center" } }, editor: "combo", options: "/api/syn/md/column_policy?action=options", fillspace: true },
+            { id: "column_policy", header: { text: "更新策略", css: { "text-align": "center" } }, editor: "combo", options: "/api/syn/md/column_policy?action=options", minWidth: 140, fillspace: true },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
         ]
     });
