@@ -61,7 +61,7 @@ function builder() {
                 cols: [
                     dGrid,
                     { view: "resizer" },
-                    { id: script, gravity: 2, view: "ace-editor", mode: "sqlserver" },
+                    { id: script, view: "ace-editor", mode: "sqlserver" },
                 ]
             },
             dPager
