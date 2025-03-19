@@ -5,10 +5,10 @@ function builder() {
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
-            { id: "primary_", header: { text: "主键", css: { "text-align": "center" } }, template(obj) { return !_.isEmpty(obj["primary"]) ? webix.template("【#!name#】#!type#")(obj["primary"]) : "" }, fillspace: true },
-            { id: "rows", header: { text: "行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
+            { id: "primary_", header: { text: "主键", css: { "text-align": "center" } }, template(obj) { return _.size(obj["primary"]) ? obj["primary"].join(", ") : "" }, fillspace: true },
+            { id: "rows", header: { text: "总行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
             { id: "columns_", header: { text: "字段数量", css: { "text-align": "center" } }, template(obj) { return _.size(obj["columns"]) }, css: { "text-align": "right" }, width: 80 },
-            { id: "triggers_", header: { text: "触发器", css: { "text-align": "center" } }, template(obj) { return _.size(obj["triggers"]) ? "【" + _.size(obj["triggers"]) + "】" + obj["triggers"].join(" | ") : "" }, fillspace: true },
+            { id: "triggers_", header: { text: "触发器", css: { "text-align": "center" } }, template(obj) { return _.size(obj["triggers"]) ? obj["triggers"].join(", ") : "" }, fillspace: true },
         ],
         on: {
             onAfterLoad() { if (this.count() < 1) { $$(xGrid.id) && $$(xGrid.id).clearAll() } },
