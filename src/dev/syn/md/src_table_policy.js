@@ -9,6 +9,7 @@ function builder() {
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "table_name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
+            { id: "rows", header: { text: "行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
             { id: "is_sync", header: { text: "迁移同步", css: { "text-align": "center" } }, template: "{common.checkbox()}", checkValue: "1", uncheckValue: "0", tooltip: false, css: { "text-align": "center" }, width: 80 },
             { id: "description", header: { text: "描述", css: { "text-align": "center" } }, editor: "text", fillspace: true },
             { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },

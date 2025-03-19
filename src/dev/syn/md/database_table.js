@@ -1,11 +1,12 @@
 function builder() {
     var dPager = utils.protos.pager();
     var dGrid = utils.protos.datatable({
-        url: null, drag: false, editable: false, gravity: 2, data: [],
+        url: null, drag: false, editable: false, gravity: 3, data: [],
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
             { id: "primary_", header: { text: "主键", css: { "text-align": "center" } }, template(obj) { return !_.isEmpty(obj["primary"]) ? webix.template("【#!name#】#!type#")(obj["primary"]) : "" }, fillspace: true },
+            { id: "rows", header: { text: "行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
             { id: "columns_", header: { text: "字段数量", css: { "text-align": "center" } }, template(obj) { return _.size(obj["columns"]) }, css: { "text-align": "right" }, width: 80 },
             { id: "triggers_", header: { text: "触发器", css: { "text-align": "center" } }, template(obj) { return _.size(obj["triggers"]) ? "【" + _.size(obj["triggers"]) + "】" + obj["triggers"].join(" | ") : "" }, fillspace: true },
         ],
@@ -22,12 +23,27 @@ function builder() {
     });
 
     var xGrid = utils.protos.datatable({
-        url: null, drag: false, editable: false,
+        url: null, drag: false, editable: false, gravity: 2,
         data: [],
         columns: [
             { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
             { id: "name", header: { text: "字段名称", css: { "text-align": "center" } }, fillspace: true },
             { id: "type", header: { text: "数据类型", css: { "text-align": "center" } }, fillspace: true },
+            {
+                id: "is_primary", header: { text: "主键", css: { "text-align": "center" } },
+                template(policy) { return policy["is_primary"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-key-variant'></span>" : "<span/>" },
+                css: { "text-align": "center" }, width: 60
+            },
+            {
+                id: "is_identity", header: { text: "标识", css: { "text-align": "center" } },
+                template(policy) { return policy["is_identity"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-check'></span>" : "<span/>" },
+                css: { "text-align": "center" }, width: 60
+            },
+            {
+                id: "is_nullable", header: { text: "为空", css: { "text-align": "center" } },
+                template(policy) { return policy["is_nullable"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-check'></span>" : "<span/>" },
+                css: { "text-align": "center" }, width: 60
+            },
         ]
     });
 
