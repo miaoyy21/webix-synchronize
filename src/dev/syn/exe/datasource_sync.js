@@ -6,13 +6,14 @@ function builder() {
         url: apiDsSync, rightSplit: 1,
         save: { url: apiDsSync, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
             { id: "src_ds_code", header: { text: "原始数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
             { id: "src_sql", header: { text: "原始数据SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 360, fillspace: true },
             { id: "dst_ds_code", header: { text: "目标数据源", css: { "text-align": "center" } }, editor: "combo", options: apiDs + "?action=options", width: 120 },
             { id: "dst_sql", header: { text: "目标数据SQL", css: { "text-align": "center" } }, editor: "text", minWidth: 360, fillspace: true },
-            { id: "dst_table", header: { text: "更新数据库表", css: { "text-align": "center" } }, editor: "text", width: 120 },
-            { id: "dst_id_field", header: { text: "ID字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
+            { id: "dst_table", header: { text: "目标数据库表", css: { "text-align": "center" } }, editor: "text", width: 120 },
+            { id: "dst_id_field", header: { text: "标识字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
+            { id: "dst_compare_fields", header: { text: "比较字段", css: { "text-align": "center" } }, editor: "text", width: 100 },
             {
                 id: "sync_status", header: { text: "运行状态", css: { "text-align": "center" } },
                 template(obj) {
@@ -58,6 +59,7 @@ function builder() {
             "dst_sql": webix.rules.isNotEmpty,
             "dst_table": webix.rules.isNotEmpty,
             "dst_id_field": webix.rules.isNotEmpty,
+            "dst_compare_fields": webix.rules.isNotEmpty,
         },
         onClick: {
             button_log(e, item) {

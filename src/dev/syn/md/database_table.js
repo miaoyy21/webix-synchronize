@@ -3,12 +3,12 @@ function builder() {
     var dGrid = utils.protos.datatable({
         url: null, drag: false, editable: false, gravity: 3, data: [],
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
             { id: "name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
-            { id: "primary_", header: { text: "主键", css: { "text-align": "center" } }, template(obj) { return _.size(obj["primary"]) ? obj["primary"].join(", ") : "" }, fillspace: true },
-            { id: "rows", header: { text: "总行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
-            { id: "columns_", header: { text: "字段数量", css: { "text-align": "center" } }, template(obj) { return _.size(obj["columns"]) }, css: { "text-align": "right" }, width: 80 },
-            { id: "triggers_", header: { text: "触发器", css: { "text-align": "center" } }, template(obj) { return _.size(obj["triggers"]) ? obj["triggers"].join(", ") : "" }, fillspace: true },
+            { id: "primary_", header: { text: "主键", css: { "text-align": "center" } }, template(obj) { return _.size(obj["primary"]) ? obj["primary"].join(", ") : "" }, minWidth: 140, fillspace: true },
+            { id: "rows", header: { text: "总行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 80 },
+            { id: "columns_", header: { text: "字段数", css: { "text-align": "center" } }, template(obj) { return _.size(obj["columns"]) }, css: { "text-align": "right" }, width: 80 },
+            { id: "triggers_", header: { text: "触发器", css: { "text-align": "center" } }, template(obj) { return _.size(obj["triggers"]) ? obj["triggers"].join(", ") : "" }, minWidth: 140, ffillspace: true },
         ],
         on: {
             onAfterLoad() { if (this.count() < 1) { $$(xGrid.id) && $$(xGrid.id).clearAll() } },
@@ -26,9 +26,9 @@ function builder() {
         url: null, drag: false, editable: false, gravity: 2,
         data: [],
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
-            { id: "name", header: { text: "字段名称", css: { "text-align": "center" } }, fillspace: true },
-            { id: "type", header: { text: "数据类型", css: { "text-align": "center" } }, fillspace: true },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
+            { id: "name", header: { text: "字段名称", css: { "text-align": "center" } }, minWidth: 120, fillspace: true },
+            { id: "type", header: { text: "数据类型", css: { "text-align": "center" } }, minWidth: 120, fillspace: true },
             {
                 id: "is_primary", header: { text: "主键", css: { "text-align": "center" } },
                 template(policy) { return policy["is_primary"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-key-variant'></span>" : "<span/>" },

@@ -7,12 +7,12 @@ function builder() {
         url: null, drag: false, data: [],
         save: { url: apiTable, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
             { id: "table_name", header: { text: "数据库表", css: { "text-align": "center" } }, width: 120 },
-            { id: "rows", header: { text: "行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 100 },
+            { id: "rows", header: { text: "行数", css: { "text-align": "center" } }, css: { "text-align": "right" }, width: 80 },
             { id: "is_sync", header: { text: "迁移同步", css: { "text-align": "center" } }, template: "{common.checkbox()}", checkValue: "1", uncheckValue: "0", tooltip: false, css: { "text-align": "center" }, width: 80 },
-            { id: "description", header: { text: "描述", css: { "text-align": "center" } }, editor: "text", fillspace: true },
-            { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
+            { id: "description", header: { text: "描述", css: { "text-align": "center" } }, editor: "text", minWidth: 240, fillspace: true },
+            { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
         ],
         on: {
             onAfterLoad() { if (this.count() < 1) { $$(xGrid.id) && $$(xGrid.id).clearAll() } },
@@ -30,16 +30,26 @@ function builder() {
         url: null, drag: false, data: [],
         save: { url: apiPolicy, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
-            { id: "column_name", header: { text: "字段名称", css: { "text-align": "center" } }, fillspace: true },
-            { id: "column_type", header: { text: "数据类型", css: { "text-align": "center" } }, fillspace: true },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
+            { id: "column_name", header: { text: "字段名称", css: { "text-align": "center" } }, minWidth: 120, fillspace: true },
+            { id: "column_type", header: { text: "数据类型", css: { "text-align": "center" } }, minWidth: 120, fillspace: true },
+            { id: "column_policy", header: { text: "更新策略", css: { "text-align": "center" } }, editor: "combo", options: "/api/syn/md/column_policy?action=options", minWidth: 140, fillspace: true },
             {
                 id: "is_primary", header: { text: "主键", css: { "text-align": "center" } },
                 template(policy) { return policy["is_primary"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-key-variant'></span>" : "<span/>" },
                 css: { "text-align": "center" }, width: 60
             },
-            { id: "column_policy", header: { text: "更新策略", css: { "text-align": "center" } }, editor: "combo", options: "/api/syn/md/column_policy?action=options", minWidth: 140, fillspace: true },
-            { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 160 },
+            {
+                id: "is_identity", header: { text: "标识", css: { "text-align": "center" } },
+                template(policy) { return policy["is_identity"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-check'></span>" : "<span/>" },
+                css: { "text-align": "center" }, width: 60
+            },
+            {
+                id: "is_nullable", header: { text: "为空", css: { "text-align": "center" } },
+                template(policy) { return policy["is_nullable"] === "1" ? "<span class='webix_icon phoenix_danger_icon mdi mdi-check'></span>" : "<span/>" },
+                css: { "text-align": "center" }, width: 60
+            },
+            { id: "create_at", header: { text: "创建时间", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 140 },
         ]
     });
 

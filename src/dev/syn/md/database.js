@@ -7,14 +7,14 @@ function builder() {
         url: api,
         save: { url: api, updateFromResponse: true, trackMove: true, operationName: "operation" },
         columns: [
-            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 80 },
+            { id: "index", header: { text: "№", css: { "text-align": "center" } }, css: { "text-align": "center" }, width: 60 },
             { id: "src_db", header: { text: "原始数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
             { id: "src_flag", header: { text: "原始标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
             { id: "dst_db", header: { text: "目标数据库", css: { "text-align": "center" } }, editor: "text", fillspace: true },
             { id: "dst_flag", header: { text: "目标标识符", css: { "text-align": "center" } }, editor: "combo", options: options, fillspace: true },
             {
                 id: "buttons",
-                width: 240,
+                width: 140,
                 header: { text: "操作按钮", css: { "text-align": "center" } },
                 tooltip: false,
                 template: ` <div class="webix_el_box" style="padding:0px; text-align:center"> 
